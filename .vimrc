@@ -27,7 +27,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
-
+Plugin 'bitc/vim-bad-whitespace'
 
 set background=dark
 
@@ -96,6 +96,10 @@ let g:airline_symbols.space = "\ua0"
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 set mouse=a
-
+if has('gui_running')
+  :set guioptions -=T
+  :set guioptions -=r
+  :set guioptions -=l
+endif 
 call vundle#end()            " required
 filetype plugin indent on    " required
