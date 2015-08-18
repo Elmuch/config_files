@@ -13,10 +13,13 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Raimondi/delimitMate'
-Plugin 'marijnh/tern_for_vim'
+ "Plugin 'marijnh/tern_for_vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/syntastic'
+
 Plugin 'scrooloose/nerdtree'
+let NERDTreeShowHidden=1
+
 Plugin 'mileszs/ack.vim'
 Plugin 'https://github.com/motemen/git-vim.git'
 Plugin 'yantze/pt_black'
@@ -28,6 +31,12 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'bitc/vim-bad-whitespace'
+
+Plugin 'mustache/vim-mustache-handlebars'
+au BufNewFile,BufRead *.handlebars set syntax=mustache
+
+let g:mustache_abbreviations = 1
+let g:mustache_operators = 0
 
 set background=dark
 
@@ -100,6 +109,11 @@ if has('gui_running')
   :set guioptions -=T
   :set guioptions -=r
   :set guioptions -=l
-endif 
+endif
+
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <ESC>"+pa
 call vundle#end()            " required
 filetype plugin indent on    " required
